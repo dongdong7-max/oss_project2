@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //안녕하세요 출력
+        alert("안녕하세요");
+        // 0 ~ 100 계산해서 이벤트로 출력
+        let sum = 0;
+
+        for(let i = 0; i <= 100; i++){
+            sum += i;
+        }
+        alert(sum);
+        // 변수 세 가지 방법으로 선언
+        let a = 0;
+        const b = 1;
+        var c = 1;
+
+        // 콘솔에 아무 메세지 하나 뛰우기
+        console.log("아무 메세지");
+
+        // comfirm함수로 삭제할건지 묻고, 결과도 이벤트로 출력
+        let result = confirm("삭제하니?");
+        alert(result);
+
+        // 1초에 1번 작동하는 함수로 이벤트 발생시키기
+        setTimeout(function(){
+            alert("정상 작동");
+        }, 1000)
+
+        // 브라우져의 안, 밖 너비, 높이를 가져와서 이벤트에 출력
+        let in_width = window.innerWidth;
+        let out_width = window.outerWidth;
+        let in_height = window.innerHeight;
+
+        // 템플릿 리터럴(`, 백틱)을 사용하면 변수와 문자를 합치기 편합니다.
+alert(`내부 너비: ${in_width}, 외부 너비: ${out_width}, 내부 높이: ${in_height}`);
+
+        // 다음 웹사이트로 이동하는 두 가지 방법. 첫 번째 뒤로가기 있음. 두 번째 뒤로 가기 없음
+        // window.location.href = "https://www.daum.net";
+        // location.replace("https://www.daum.net");
+
+        // 폰, 학번, 취미 발표 이벤트를 가진 객체 생성하기
+        let obj = {
+            phone: "1233",
+            stnum: "12345",
+            hobby : function(){
+                alert("탁구를 좋아합니다.");
+            }
+
+        };
+
+        // 객체에 이름, 객체 제목을 추가
+        obj.name = "하준";
+        obj["title"] = "객체 제목";
+
+        // 콘솔에 객체의 모든 정보 다 출력하기
+        console.log(obj.phone);
+        console.log(obj.stnum);
+        console.log(obj.name);
+        console.log(obj.title);
+
+
+        // 취미가 뭔지 말하는 이벤트 발생시키기
+        obj.hobby();
+    </script>
+    
+
+</body>
+</html>

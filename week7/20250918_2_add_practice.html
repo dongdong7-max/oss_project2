@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+    <input type="number" id="input_num1" /> + <input type="number" id="input_num2"/>
+    <button onclick="listener_add()" type="button">=</button> 
+    <input type="number" id="input_sum" />
+    <input type="reset" value="초기화"/>
+</form>
+
+<div id="div_test" onclick="listener_onclick()"
+onmouseover="console.log('mouse over!!')"
+onmouseout="console.log('mouse out!!')"
+style="height: 200px; background-color: aquamarine;">안녕하세요!"</div>
+
+<script>
+    function listener_onclick(){
+        alert("you clicked!");
+        let div_test = document.getElementById("div_test");
+        div_test.style = "background-color : yellow";
+        div_test.innerHTML = '<img src = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIALIAvgMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABwgBBQYEAwL/xABKEAABAwMBBAYEBgwPAAAAAAABAAIDBAURBgcSITETQVFhcYEIFEKRIiMyUnKhJkNEVnR1gpSxssHRFRYXJTM2U2JjkqKzwsPT/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECA//EABgRAQEBAQEAAAAAAAAAAAAAAAABERIx/9oADAMBAAIRAxEAPwCcUREBERAREQEREBay93q2WGjdV3itjpoByMh4uPY0Di49wBK0e0LWtHo22B7wJrhOCKamzjex7Tuxo4Z7eQ7q33y93LUFwkr7rVOqJnct4/BY35rRyaO4eeTxU0S/e9uNHG5zLJaJapoz8dUv6IHvDQCSPHC5mfbXqiR3xdPaom54DoHuIHiX8fcFGyLPVElQbbNURuHTUtqmb1joXtJ8CH8PcV1di23W2pc2O+W2ahz9uhd0zB3kABw8gVBSZTqi4NrudDdqRlXbKuGqp38pInZGesHsPceK9yqLpzUd10zX+u2eo6J/DfjPGOUdjm9Y+sdRCshoTWVDrK2dPT/E1kOBU0xOTGTyIPW08cH9oWtHVIiKgiIgIiICIiAiIgIiICIiAvLcq6nttBU11W/cp6eN0kjuxoGSvUov2+3k0Wl6e1xuxJcZsOHbGzDj9e4PMqCFdU3+p1Nfam7VnB0zsRR5yIox8lo8Bz7SSetapAhWLWsYWV2ezfQc+sKySSWR1PbKd2J5Wj4T3EZ3G54ZxgknkCOeVOdv2e6SoYhFHYKCXHtVMQmcfN+SrJrKrCyrPXbZppK5wljrPBSSezLRDoXNPgOB8CCFAmu9JVejrx6lUO6amlbv01RjHSNzggjqIJAI7wetLBzi2ultQVemb7BdKH5URw+POBLGcbzD3HHkQD1LVIQpFXCtVwp7rbqa4UT9+nqY2yRuxg4IzxHUe1e1RT6P13dVadrbTI74VDOHxjsjkycf5g8+alZbQREVBERAREQEREBERAREQFX/ANIGsdNq2go/Zp6EP/Ke85+prVP4VbtuD3O2hVLfm0sIHhgn9pUo4IIUX5l/onfRK5xrVp9mdrZadDWeBrNx8lO2ol7S+Qbxz4Zx5BdUvJamtbbKRrfkiBgHhuhetdWRR7tutDLjoear3fj7fI2dp690kNePcc+QUhLnNojd7QmoPxfN9TSgqmi/Qas7q5KlL0eJHN1FdYvZfRtcfEPAH6xU9KAvR9H2W3H8AP8AuMU+rpEERFQREQEREBERAREQEREGAq6bd4uj17vf2tDC7x4vH7FYxQl6RFuLZ7PdWt+CWyUz3d4Ic0e7f9ylEOrEg3mub2ghZRc1W803UsrNO22pY7LJqSJ4PcWArZqF9jm0CjgoIdOXyobTuiJFFUSOw1zTx3CTyIJ+DngQQOYGZnXTUZXxqYIKunkp6qKOaCVu6+ORoc1wPMEHgV9kVGmOk9N/e/avzKP9yfxT03979q/Mo/3Lcopg11vslqtkrpbdbKKkkc3dLqenbGSOeDgDIWxREBERUEREBERAREQEREBERAXK7StPu1JpCtooW71VGOnph1mRnEDzGW+a6pFBTD/T3HgR3FFMe1vZxMZ59Qadp+lDyX1tLGMuB5l7AOeeZHPPEcyocB3vkrFisEby6fTOvtR6Z3YrfXOlpW8qWpBkjA7Bk5aPokBcyikonrTm2uz1u7FfaaS3SngZW5liz3kDI9xHepJt1yorpTCpttXDVQO5SQyBw8MgqnmF6rZcq+01XrNrrJqSfh8ZC8tJ7jjgR3HIWukXFRQdo/bRUQujpNVxdNFy9egjw9ve9g4Ed4wf7pU0UVXT19JFV0U0c1PK0OZJG7LXA9YK2PSiIgIiICIiAiIgIiICIiAiIgIiIC4DWey2zakdJV0383XJ3EzwNBZIe17ORPeMHtJXfogq9qXZxqbT+ZJaL1ulb90UeZBjvGN4e7HeuRBa75PwvBXPXLam0BpzUhdJXULYqo/dNN8XJntJHB3mCs8irKKTdUbG7xbN+exzNudMMnoiAyceA5O8iD2BRpLG+CWSGaNzJWEtcx7SC0jmCDxBWcV+V3Oy3XU2lbo2jrpHGz1L8StJyIHE46Qdg7R2ceY48MsOCSri5wIcN4HIPJfpcRsevLrzoWidK/fnpCaWQk5J3MbvnuFq7dbZERFQREQEREBERAREQEREBERAREQEREGFEu3jTVPPZ26jp42sq6Z7Y6hwGOlicd0Z72kjB7Ce5S2uW2nQifQF+aeqke/zbgj9CCrKLAWVya1NXo61Z9XvlF7LXwzjxcHA/qhTKoH9Hh+7fbxH86lYfc8/vU8BdIyIiKgiIgIiICIiAiIgIiICiLUW2WWzX+4WtthjmFHO6LpDWbu/jrxuHHvUuBVR2hgt17fvw159+CpbgkL+Xif72Y/z8/8AmvRa9tk1fc6Kidp6OIVNRHDv+ul27vOAzjcGcZzzULL22GVsF9tk0nCOKthc49gDwSfcFnoXBREWwXObRf6iX/8AF836pXRrldp87YdAX5x66RzPN2AP0qCrIX6CwFlc1Sl6PQ+yi5/gP/Y1T2FB3o7Ql11vlR7LYYWe8vP/ABU5LpPEERFQREQEREBERAREQEREGAqzbY6B1DtCuLvYqmR1DPAtDT9bSrNKK9vOnDX2SC+U0eZbdlswAyTC4jJ/JIB8CVLNECLDhvfB7VkIubWLO7MtWQ6p07F0krf4SpWiKsj694DAfjscBnxyOpdkqc2241tqrY6211U1NUsziSJxBx1g9o4cjwXcUe2XV1NE2OR1vqnAfLnpiCfHccB9S6ayscoe286qgbb2aapJA+ple2WrA49GwHLWnsJOD4DvC4m6bWtYV8RibWU9EHDBNLDunyLiSPLBXEPc+WV0kjnPke4uc95JLieJJJ4kqWjCFZWWRvke2GFrnySODWMHEuJOAB3kkBYaxPPo+28waXrq5zcet1hDT2tYAP0lylRaXR9mGntM261fB3qeECRw5OkPF5Hi4krdLoyIiKgiIgIiICIiAiIgIiIC+U0Uc0UkMrWvjkaWuY4ZDgeBBHWvqiCsm0rQ02kbkZqdrn2eocfV5eJ6In7W49RHUTzHeCuMwri11FTXGllpK2COenlbuvjkGQ4dhChXWGxmrp3SVOlpPWYOJ9SmdiRn0Xng4dxwe8rNi6iRF6bnbq+1VHRXSjqKSX5lRGWZ8CeBHgvLlZygmFguWws9lut6lbHZ7fUVbicZiZlo8Xch5kJlHiUr7FtES1dbDqe6Q7tJBxoY3DjLJy6THYOOO08erjstE7G2xTR1uq5I5d3i2giOW5/xHdf0Rw7yOCmBjGxsayNrWtaAAAMAAdy1Jhr6IiLSCIiAiIgIiICIiAiIgIiICIiAiIg+U0MVRGY542ysPNj2gg+RWll0XpaZxdJpy1FxOSfVGZJ8gt+iDSUuktN0jhJTaftUUg5ObRxgjzxlbhjGxs3Y2ta0cgBgBftEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf/Z">';
+
+    }
+
+    function listener_add(){
+        let num1 = document.getElementById("input_num1");
+        let num2 = document.getElementById("input_num2");
+
+        let sum = Number(num1.value) + Number(num2.value);
+
+        let input_sum = document.getElementById("input_sum");
+        input_sum.value = sum;
+        alert(sum);
+    }
+
+    let type1 = "abc";
+    alert("type1: " + type1);
+    alert(`type: ${type1}`);
+</script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div class="example">example</div>
+    <style>
+        /* div.example{
+            font-size: 50px;
+            background-color: aqua;
+        }
+        @media only screen and (max-width: 600px) {
+            div.example{
+                font-size: 30px;
+                background-color: violet;
+
+            }
+
+        }
+        @media only screen and (min-width: 600px) and (max-width: 700px) {
+            div.example {
+                font-size: 40px;
+                background-color:green;
+            }
+        }
+        @media only screen and (min-width: 700px) {
+            div.example {
+                font-size: 50px;
+                background-color:yellow;
+            }
+        } */
+        div.example1{
+            font-size: 30px;
+                background-color: violet;
+        }
+        div.example2{
+            font-size: 40px;
+                background-color:green;
+        }
+        div.example3{
+            font-size: 50px;
+                background-color:yellow;
+        }
+    </style>
+    <script>
+        $(function(){
+            let width = window.innerWidth;
+        let width2 = $(document).width;
+        console.log(width);
+        console.log(width2);
+        });
+
+        if(width > 700){
+            $(".example").addClass("example3");
+        }else if(width > 475){
+            $(".example").addClass("example2");
+        }else {
+            $(".example").addClass("example1");
+        }
+    </script>
+
+    475이하일 때 글씨크기 30px / 배경색 보라색 
+    476부터 700까지 글씨크기 40px / 배경색 초록색 
+    700 이상 글씨 50px / 배경색 노랑색
+</body>
+</html>

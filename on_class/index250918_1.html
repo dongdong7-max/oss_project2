@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //alert("안녕하세요");
+        let sum = 0;
+        for(let i = 0; i<=100;i++){
+            sum += i
+        }
+
+        //alert("0~100 더함" + sum + "입니다");
+
+        var aaa = 0; // 밑에서 선언하고 위에서 쓰고 있음. 자료형도 자유. 중복 선언/재할당 가능
+        let bbb = 0; // 순차적인 변수 선언으로 써야 함.
+        const ccc = 0; // 상수처럼 선언
+        console.log(sum);
+        //setTimeout(function{}{alert(1234);}, 4);
+        //confirm("정말 삭제하겠습니까?");
+        //let confirm_result = 
+
+        let height1 = window.innerHeight;
+        //alert(height1);
+
+        let height2 = window.outerHeight;
+        //alert(height1);
+
+        let width1 = window.innerWidth;
+        //alert(width1);
+
+        let width2 = window.outerWidth;
+        //alert(width2);
+
+        //location.href = "https://www.daum.net"
+        //location.replace("https://www.daum.net")
+
+        let obj = {
+            phone : "01000000",
+            stdnum: "22200000",
+            morningrun : function(){
+                alert("저는 새벽에 달립니다.");    
+            }
+        };
+        obj.name = "객체 이름";
+        obj.title["객체 제목이야"];
+        console.log(obj.name);
+        console.log(obj.phone);
+        console.log(obj.stdnum);
+        console.log(obj.morningrun);
+        //console.log(obj.title);
+        
+        
+    </script>
+    
+</body>
+</html>

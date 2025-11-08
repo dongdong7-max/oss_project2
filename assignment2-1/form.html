@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Web page</title>
+    <style>
+ 
+        body {
+            font-family: sans-serif;
+            margin: 30px;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 0 0 20px 0;
+        }
+        .controls {
+            margin-bottom: 25px;
+        }
+        #itemInput {
+            padding: 8px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            width: 250px;
+            margin-right: 5px;
+        }
+        button {
+            padding: 9px 18px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .add-btn {
+            background-color: #0000ff;
+        }
+        .delete-btn {
+            background-color: #556b2f;
+        }
+        #itemList {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        #itemList li {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            cursor: pointer; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dynamic Web page</h1>
+
+    <div class="controls">
+        <input type="text" id="itemInput" placeholder="새 항목을 입력하세요">
+        <button id="addBtn" class="add-btn">추가</button>
+        <button id="deleteBtn" class="delete-btn">전체 삭제</button>
+    </div>
+
+    <ul id="itemList">
+        <li>appple</li>
+        <li>banana</li>
+        <li>kiwi</li>
+    </ul>
+
+    <script>
+
+       function addItem() {
+            const text = itemInput.value.trim(); // 입력값의 양쪽 공백 제거
+
+            if (text === '') { // 입력값이 없으면 함수 종료
+                alert('항목을 입력해주세요!');
+                return;
+            }
+
+ 
+            const newLi = document.createElement('li');
+            newLi.textContent = text;
+
+  
+            itemList.appendChild(newLi);
+
+        
+            itemInput.value = '';
+            itemInput.focus();
+        }
+
+  
+        addBtn.addEventListener('click', addItem);
+
+
+        itemInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                addItem();
+            }
+        });
+
+
+        deleteBtn.addEventListener('click', () => {
+            itemList.innerHTML = ''; // ul 태그 안의 모든 HTML을 비움
+        });
+        
+  
+        itemList.addEventListener('click', (event) => {
+            // 클릭된 요소가 LI 태그가 맞는지 확인
+            if (event.target.tagName === 'LI') {
+                event.target.remove(); // 맞다면 해당 요소 삭제
+            }
+        });
+
+    </script>
+</body>
+</html>

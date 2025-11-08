@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // alert("안녕하세요!");
+        let sum = 0;
+        for(let i = 0; i <= 100;i++){
+            sum += i;
+        }
+        // alert("0부터 100까지 더하면 : " + sum + "입니다!");
+
+        var a = 0;
+        let b = 0;
+        const c = 0;
+
+        // console.log("java와 js는 다른 언어");
+
+        // 확인과 취소가 있는 comfirm 함수
+        // let confirm_result = confirm("정말로 삭제하시겠습니까?"); // 확인, 취소 선택지 제시
+        // alert(confirm_result); // 컨펌 함수의 결과를 이벤트로 표시함. 
+
+        // 1000밀리초 뒤에 1번 작동하는 타이머 함수
+        // setTimeout(function(){alert(112233);}, 1000);
+
+        // window.innerWidth / outerWidth: 브라우저 창의 가로 너비를 가져옵니다.
+        let width1 = window.innerWidth;
+        let width2 = window.outerWidth;
+        // alert(width1 + " || " + width2);
+
+        // 창의 내부 높이를 반환하는 함수
+        let height1 = window.innerHeight;
+        // alert(height1);
+
+        // 현재 페이지의 url 주소를 가져오거나, 다른 페이지로 이동
+        // window.location.href = "https://www.daum.net";
+        // location.replace("https://www.daum.net");
+
+        let obj = {
+            phone: "01010101",
+            stdnum : "222000111",
+            morningrun : function(){
+                alert("저는 새벽에 달리래요");
+            }
+        };
+        obj.name = "객체 이름";
+        obj["title"] = "객체 제목";
+        console.log(obj.name);
+        console.log(obj.phone);
+        console.log(obj.stdnum);
+        console.log(obj["title"]);
+        obj.morningrun();
+        
+    </script>    
+</body>
+</html>

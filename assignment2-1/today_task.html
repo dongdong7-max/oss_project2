@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>오늘의 할 일</title>
+    <style>
+        /* 전체 컨테이너 스타일 */
+        .todo-container {
+            font-family: sans-serif;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 350px;
+        }
+
+        /* 목록 스타일 */
+        .todo-list {
+            list-style: none; /* 목록 앞의 점(•) 제거 */
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 목록의 각 항목(li) 스타일 */
+        .todo-item {
+            display: flex; /* 내부 요소들을 가로로 배치 */
+            justify-content: space-between; /* 양쪽 끝으로 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* 마지막 항목의 밑줄은 제거 */
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+
+        /* 할 일 제목 스타일 */
+        .item-title {
+            font-weight: bold;
+        }
+
+        /* 할 일 시간 스타일 */
+        .item-time {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        /* 중요도(우선순위) 스타일 */
+        .priority-high {
+            color: #d9534f; /* 빨간색 */
+            font-weight: bold;
+        }
+
+        /* 입력 폼 스타일 */
+        .add-form {
+            display: flex; /* 입력창과 버튼을 가로로 배치 */
+            margin-top: 16px;
+        }
+
+        .add-input {
+            flex-grow: 1; /* 입력창이 남은 공간을 모두 차지하도록 */
+            border: 1px solid #ccc;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .add-button {
+            border: none;
+            background-color: #0275d8;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="todo-container">
+        <h2>오늘의 할 일</h2>
+
+        <ul class="todo-list">
+            <li class="todo-item">
+                <div>
+                    <span class="item-title">프로젝트 기획</span><br>
+                    <span class="item-time">오전 10:00</span>
+                </div>
+                <span class="priority-high">높음</span>
+            </li>
+
+            <li class="todo-item">
+                <div>
+                    <span class="item-title">디자인 시안 확인</span><br>
+                    <span class="item-time">오후 2:00</span>
+                </div>
+                <span>보통</span>
+            </li>
+
+             <li class="todo-item">
+                <div>
+                    <span class="item-title">운동하기</span><br>
+                    <span class="item-time">오후 7:00</span>
+                </div>
+                <span>낮음</span>
+            </li>
+        </ul>
+        <hr> <form class="add-form">
+            <input type="text" class="add-input" placeholder="새로운 할 일 추가">
+            <button type="button">추가</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 복습 파일 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복습 파일</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/
+3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- 22번 슬라이드 -->
+    <div id="div_01">div입니다.</div>
+    If you click on me, I will disappear.
+    <div>Click me?</div>
+    <div id="p1">click1</div>
+    <div id="p2">click2</div>
+    <div id="p3">click3</div>
+    <div id="p4">click4</div>
+
+    <script>
+        $(document).ready(function(){
+            $("#p1").click(function(){
+                $(this).hide();
+            });
+            $("#p2").click(function(){
+                
+                $(this).css("background-color", "red");
+            });
+            $("#p3").click(function(){
+                $("#p2").css("position", "relative");
+                $("#p2").animate({ left: "250px" });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fruits1 = ["apple", "banana", "melon"];
+        alert(fruits1[1]);
+
+        let fruits2 = [];
+        fruits2[0] = "apple";
+        fruits2[1] = "banana";
+        fruits2[2] = "melon";
+        alert(fruits2[2]);
+
+        for(let i=0; i<fruits2.length;i++){
+            console.log(fruits2[i]);
+        }
+
+        const fruits3 = new Array("Apple", "Banana", "Grape");
+        
+        for(let i=0; i<fruits3.length;i++){
+            console.log(fruits3[i]);
+        }
+
+        fruits3.push("orange");
+        // 퀴즈: push 메서드를 모른다 가정하에 배열에 값을 추가해야 한다면?
+        // 여기까지 깃에 한 번 올림.
+        fruits3[fruits3.length + 1] = "new";
+
+        // push 대신 push하는 메소드.
+
+        //foreach function
+
+        fruits3.forEach(function(each){
+            console.log(fruits3);
+        });
+
+
+        const fruits = ["Bananas", "Oranges", "Apples", "Mangos"]; 
+
+    // Destructuring    
+    let [a1, a2] = fruits; 
+    let [aa1,,,aa2] = fruits; 
+    let {[0]:aaa1 ,[1]:aaa2} = fruits; 
+
+    console.log(a1 + "//" + a2);
+    console.log(aa1 + "//" + aa2);
+         
+    const person = { 
+    firstName: "John", 
+    lastName: "Doe", 
+    age: 50
+    }; 
+
+    // 구조분해할당 중요.
+    // 구조분해할당. 각 예시를 위한 정의들. 필요한 것 해제해서 사용할 것.
+    // Destructuring 
+    //let {lastName, firstName} = person; 
+    
+    // Default value 
+    let {firstName, lastName, country = "US"} = person; 
+    // Property alias 
+    //let {lastName : name} = person;
+
+
+    console.log(firstName + "//" + firstName);
+/*
+    // javascript 객체 예시
+    {firstName: “John", lastName: “Doe", age: 50 } 
+    // json 예시
+    { 
+    "firstName": "John", 
+    "lastName": "Doe", 
+    "age": 50 
+    }*/
+
+    // 자바스크립트에서 function은 선언 전에도 사용할 수 있다.
+    // 내가 선언한 이후에만 function을 사용할 수 있도록 하는 방법은?
+
+    // 새로운 창을 띄운다.
+    window.open("http://www.daum.net");
+
+    //자바프렉티스1까지 10주차 퀴즈 범위. 한 문제 구글 설문지에 제출하기
+    //쿠키: 현재 브라우져의 데이타 베이스
+    </script>
+</body>
+</html>

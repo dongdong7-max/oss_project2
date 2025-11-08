@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week3</title>
+</head>
+<body>
+    <h2>HTML Forms</h2>
+    <div>사용자 정보 입력</div>
+    <!--form 태그 실습-->
+    <form method="post" action="form_ok.html">
+        <!--
+        method는 데이터를 전송할 때 방식 GET, POST, PUT, DELETE 등등
+        action은 데이터를 전송할 url을 표시-->
+        <label for="input_name">이름 : </label><br/>
+        <input type="text" id="input_name" name="name" placeholder="내용을 적어주세요"><br/>
+        <!--
+        label은 인풋 태그 이름을 표기하는 공간
+        placeholder를 적어주면, 아무것도 이벽하지 않았을 때 인풋 내에 표기가 된다.
+        input의 name 어트리뷰트는 폼으로 전송할 때 key로 --된다.-->
+        
+        <label for="input_email">이메일 : </label><br/>
+        <input type="text" id="input_name" name="email" placeholder="내용을 적어주세요"><br/>
+
+        <fieldset>
+            <legend>필드셋의 라벨 같은 기능</legend>
+            <label for="input_phone">전화번호: </label> <input type="text" id="input_phone">
+            <label></label>
+        </fieldset>
+        <div>
+            <label for="input_type_password">TYPE: password</label>
+            <input>
+        </div>
+
+        <div>
+            <label for="input_type_hidden">TYPE: </label>
+            <input type="hidden" name="input_hidden" id="input_type_hidden">
+        </div>
+
+        <div>
+            <label for="input_type_radio1">TYPE: radio 1</label>
+            <input type="radio" name="type_radio" id="input_type_radio1">
+            
+            <label for="input_type_radio2">TYPE: radio 2</label>
+            <input type="radio" name="type_radio" id="input_type_radio1">
+
+            <label for="input_type_radio3">TYPE: radio 3</label>
+            <input type="radio" name="type_radio" id="input_type_radio1">
+        </div>
+
+        <div>
+            <label for="input_type_checkbox"></label>
+        </div>
+
+        <div>
+            <label for="select_gender">TYPE: gender</label>
+            <select name="gender" id="select_gender">
+                <optgroup label="그룹1">
+                    <option value="1">남</option>
+                <option value="1">여</option>
+                </optgroup>
+                <optgroup label="그룹2">
+                    <option value="3">x</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div>
+            <label for="input_type_list">TYPE: list</label>
+            <input type="text" list="list_fruit" name="input_list" id="input_type_list">
+            <datalist>
+                <option value="apple">사과</option>
+            </datalist>
+        </div>
+
+        <input type="submit" value="제출">
+
+
+    </form>
+    
+</body>
+</html>

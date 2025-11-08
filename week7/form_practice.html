@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <h2>HTML Forms</h2>
+    <div>사용자 정보 입력</div>
+    
+    <form method="post" action="form_practice.html">
+        <label for="input_name">이름:  </label>
+        <input type="text" id="input_name" name="name" placeholder="내용을 적어주세요"><br>
+
+        <label for="input_email">이메일: </label><br>
+        <input type="text" id="input_name" name="email" placeholder="내용을"><br>
+
+        <fieldset>
+            <legend>필드셋의 라벨</legend>
+            <label for="input_phone">전화번호: </label> <input type="text" id="input_phone"><br>
+            <label for="input_home">주소: </label> <input type="text" id="input_home"><br>
+        </fieldset>
+
+        <label for="input_Text">text: </label> <input type="text" id="input_Text"><br>
+        <label for="input_Text">text: </label> <input type="password" id="input_Text"><br>
+        <label for="input_Text">text: </label> <input type="number" id="input_Text"><br>
+        <label for="input_Text">text: </label> <input type="date" id="input_Text"><br>    
+        <label for="input_Text">text: </label> <input type="time" id="input_Text"><br>
+        <label for="input_Text">text: </label> <input type="hidden" id="input_Text"><br>
+        <label for="input_type_radio1">TYPE: radio1</label> 
+        <input type="radio" id="input_type_radio1" name="type_radio"><br>
+        <label for="input_type_radio2">TYPE: radio2</label> 
+        <input type="radio" id="input_type_radio2" name="type_radio"><br>
+        <label for="input_type_radio3">TYPE: radio3</label> 
+        <input type="radio" id="input_type_radio3" name="type_radio"><br>
+        <label for="input_type_color">TYPE: color</label> 
+        <input type="color" id="input_type_color" name="type_radio">
+        <label for="input_type_file">type: file</label><br>
+        <input type="file" id="input_type_file" name="input_file">
+        
+        <div>
+            <label for="input_type_checkbox">체크박스</label>
+            <input type="checkbox" id="input_type_checkbox" name="checkbox"><br>
+            <label for="input_type_checkbox1">체크박스1</label>
+            <input type="checkbox" id="input_type_checkbox1" name="checkbox"><br>
+            <label for="input_type_checkbox2">체크박스2</label>
+            <input type="checkbox" id="input_type_checkbox2" name="checkbox"><br>
+        </div>
+
+        <div>
+            <label for="select_gender">type: gender</label>
+            <select name="gender" id="select_gender">
+                <optgroup label="그룹1">
+                    <option value="1">
+                        남
+                    </option>
+                    <option value="2">
+                        여
+                    </option>
+                </optgroup>
+                <optgroup label="그룹2">
+                    <option value="3">x</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div>
+            <label for="input_type_textarea">type: list</label>
+            <textarea id="input_type_textarea" rows="10"></textarea>
+            <datalist>
+                <option value="apple">사과</option>
+            </datalist>
+        </div>
+
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>
