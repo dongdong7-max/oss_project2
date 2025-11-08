@@ -1,0 +1,95 @@
+{
+  "students": [
+    {
+      "id": "afd",
+      "age": "23",
+      "name": "GaJun Kim",
+      "student_id": "22200000",
+      "student_grade": "A"
+    },
+    {
+      "id": "qwd",
+      "age": "23",
+      "name": "NaJun Kim",
+      "student_id": "22200001",
+      "student_grade": "A"
+    }, 
+    {
+      "id": "qsd",
+      "age": "23",
+      "name": "DaJun Kim",
+      "student_id": "22200002",
+      "student_grade": "B"
+    },
+    {
+      "id": "qta",
+      "age": "23",
+      "name": "RaJun Kim",
+      "student_id": "22200003",
+      "student_grade": "A"
+    },
+    {
+      "id": "qew",
+      "age": "son-server",
+      "name": "MaJun Kim",
+      "student_id": "22200004",
+      "student_grade": "D"
+    },
+    {
+      "id": "adf",
+      "age": "23",
+      "name": "BaJun Kim",
+      "student_id": "22200005",
+      "student_grade": "A"
+    },
+    {
+      "id": "ads",
+      "age": "23",
+      "name": "SaJun Kim",
+      "student_id": "22200006",
+      "student_grade": "B"
+    },
+    {
+      "id": "ad",
+      "age": "23",
+      "name": "AaJun Kim",
+      "student_id": "22200007",
+      "student_grade": "D"
+    },
+    {
+      "id": "s",
+      "age": "23",
+      "name": "JaJun Kim",
+      "student_id": "22200008",
+      "student_grade": "C"
+    },
+    {
+      "id": "d",
+      "name": "Chajun Kim",
+      "age": "23",
+      "student_id": "22200009",
+      "student_grade": "A"
+    },
+    {
+      "id": "ebfd",
+      "name": "Hajun Kim",
+      "age": "23",
+      "student_id": "22200217",
+      "student_grade": "A"
+    },
+    {
+      "id": "22200011",
+      "name": "Kajun Kim",
+      "age": "24",
+      "student_id": "22200011",
+      "student_grade": "A"
+    },
+    {
+      "id": "22200011",
+      "name": "Kajun Kim",
+      "age": "24",
+      "student_id": "22200011",
+      "student_grade": "A"
+    }
+  ]
+}
