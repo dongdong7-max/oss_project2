@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
- 
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/
-3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>assignment4</title>
 </head>
-  
-<body>  
-    <!-- 버튼과 인풋 텍스트 박스 부분 -->
-    <form> 
+
+<body class="container mt-4">
+    
+    <form>
+        <h4>학생 관리 (조회/수정/삭제)</h4>
+        <p>MockAPI의 고유 'id' (숫자 1, 2, 3...)를 입력하세요.</p>
         name: <input type="text" id="student_name" placeholder="name"><br>
         age: <input type="number" id="student_age" placeholder="age"><br>
-        student number: <input type="text"id="student_id" placeholder="student_id"><br>
+        student number: <input type="text" id="student_id" placeholder="student_id"><br>
         grade:
         <select id="student_grade">
             <option>A</option>
@@ -23,54 +24,129 @@
             <option>C</option>
             <option>D</option>
         </select><br>
-        <button type="button" id="add_btn">학생데이터 추가</button><br>
-        <button type="button" id="update_btn">학생데이터 수정</button><br>
-        <button type="button" id="delete_btn">학생데이터 삭제</button><br>
-        <button type="button" id="detail_btn">학생데이터 가져오기</button><br>
 
+        <button type="button" id="update_btn" class="btn btn-warning mt-2">학생데이터 수정</button>
+        <button type="button" id="delete_btn" class="btn btn-danger mt-2">학생데이터 삭제</button>
+        <button type="button" id="detail_btn" class="btn btn-info mt-2">학생데이터 가져오기</button>
     </form>
-    <!-- 이벤트 추가 및 여러 기능들 -->
+    
+    <hr>
+
+    <button type="button" id="add_modal_trigger_btn" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
+        학생데이터 추가 (Modal)
+    </button>
+    <button type="button" id="list_btn" class="btn btn-primary">전체 학생 목록 보기</button>
+    
+    <hr>
+    
+    <div id="student_list_result">
+        </div>
+
+    
+    <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">새 학생 추가</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add_form">
+                        name: <input type="text" id="add_student_name" placeholder="name" class="form-control"><br>
+                        age: <input type="number" id="add_student_age" placeholder="age" class="form-control"><br>
+                        student number: <input type="text" id="add_student_id" placeholder="student_id" class="form-control"><br>
+                        grade:
+                        <select id="add_student_grade" class="form-select">
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                        </select><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" id="save_add_btn" class="btn btn-primary">저장하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         $(function() {
 
-            $("#add_btn").click(function() {
-                alert("add student?");
-
-                const newId = $("#student_id").val();
-                const xhr = new XMLHttpRequest();
-                xhr.open("POST", "http://localhost:3000/students");
-                xhr.setRequestHeader("content-type", "application/json");
             
-                let data = {
-                    id: newId,
-                    name: $("#student_name").val(),
-                    age: $("#student_age").val(),
-                    student_id: newId,
-                    student_grade: $("#student_grade").val()
-                }
-                xhr.send(JSON.stringify(data));
+            const MOCKAPI_URL = "https://6915289384e8bd126af8d850.mockapi.io/student";
+
+            // [추가] "전체 학생 목록 보기" 기능
+            $("#list_btn").click(function() {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", MOCKAPI_URL);
+                xhr.send();
                 xhr.onload = () => {
-                    if (xhr.status === 201) {
-                        const res = JSON.parse(xhr.response);
-                        alert(JSON.stringify(res));
+                    if (xhr.status === 200) {
+                        const students = JSON.parse(xhr.response);
+                        let html = '<table class="table">';
+                        html += '<tr><th>MockAPI ID</th><th>Student ID</th><th>Name</th><th>Age</th><th>Grade</th></tr>';
+                        students.forEach(s => {
+                            html += `<tr><td>${s.id}</td><td>${s.student_id}</td><td>${s.name}</td><td>${s.age}</td><td>${s.student_grade}</td></tr>`;
+                        });
+                        html += '</table>';
+                        $("#student_list_result").html(html);
                     } else {
                         console.log(xhr.status, xhr.statusText);
                     }
                 }
             });
 
+
+            $("#save_add_btn").click(function() {
+                alert("add student?");
+
+                const newId = $("#add_student_id").val(); // Modal 폼(#add_*)에서 값 가져오기
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", MOCKAPI_URL); // URL 변경
+                xhr.setRequestHeader("content-type", "application/json");
+            
+                let data = {
+                    // MockAPI는 id를 자동 생성하므로, id 필드는 제외
+                    name: $("#add_student_name").val(), // Modal 폼(#add_*)에서 값 가져오기
+                    age: $("#add_student_age").val(), // Modal 폼(#add_*)에서 값 가져오기
+                    student_id: newId,
+                    student_grade: $("#add_student_grade").val() // Modal 폼(#add_*)에서 값 가져오기
+                }
+                xhr.send(JSON.stringify(data));
+                xhr.onload = () => {
+                    if (xhr.status === 201) { // 201 Created
+                        const res = JSON.parse(xhr.response);
+                        alert(JSON.stringify(res));
+                        
+                        // Modal 닫기 (Bootstrap 5 API 사용)
+                        var myModal = bootstrap.Modal.getInstance(document.getElementById('addModal'));
+                        myModal.hide();
+
+                        // 목록 새로고침
+                        $("#list_btn").click(); 
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                    }
+                }
+            });
+
+           
             $("#update_btn").click(function() {
                 alert("update student?");
 
-                const newId = $("#student_id").val();
+                const idToUpdate = $("#student_id").val(); // 이 값이 MockAPI의 'id'여야 함
                 const xhr = new XMLHttpRequest();
-                xhr.open("PUT", "http://localhost:3000/students/" + $("#student_id").val());
+                xhr.open("PUT", MOCKAPI_URL + "/" + idToUpdate); // URL 변경
                 xhr.setRequestHeader("content-type", "application/json");
                 let data = {
-                    id: newId,
                     name: $("#student_name").val(),
                     age: $("#student_age").val(),
-                    student_id: newId,
+                    student_id: $("#student_id").val(), // student_id 값도 같이 수정
                     student_grade: $("#student_grade").val()
                 };
                 xhr.send(JSON.stringify(data));
@@ -78,22 +154,25 @@
                     if (xhr.status === 200) {
                         let res = JSON.parse(xhr.response);
                         alert(JSON.stringify(res));
+                        $("#list_btn").click(); // 목록 새로고침
                     } else {
                         console.log(xhr.status, xhr.statusText);
                     }
                 }
             });
+
             $("#delete_btn").click(function() {
                 alert("delete student?");
 
+                const idToDelete = $("#student_id").val(); // 이 값이 MockAPI의 'id'여야 함
                 const xhr = new XMLHttpRequest();
-                xhr.open("DELETE", "http://localhost:3000/students/" + $("#student_id").val());
+                xhr.open("DELETE", MOCKAPI_URL + "/" + idToDelete); // URL 변경
                 xhr.setRequestHeader("content-type", "application/json");
                 xhr.send();
                 xhr.onload = () => {
                     if (xhr.status === 200) {
-                        
                         alert("삭제 성공");
+                        $("#list_btn").click(); // 목록 새로고침
                     } else {
                         console.log(xhr.status, xhr.statusText);
                     }
@@ -103,14 +182,24 @@
             $("#detail_btn").click(function() {
                 alert("detail student?");
 
+                const idToFetch = $("#student_id").val(); // 이 값이 MockAPI의 'id'여야 함
                 const xhr = new XMLHttpRequest();
-                xhr.open("GET", "http://localhost:3000/students/" + $("#student_id").val());
+                xhr.open("GET", MOCKAPI_URL + "/" + idToFetch); // URL 변경
                 xhr.setRequestHeader("content-type", "application/json");
                 xhr.send();
                 xhr.onload = () => {
                     if (xhr.status === 200) {
                         let res = JSON.parse(xhr.response);
-                        alert(JSON.stringify(res));
+
+                        $("#student_name").val(res.name);
+                        $("#student_age").val(res.age);
+                        $("#student_id").val(res.student_id); // student_id 필드 채우기
+                        $("#student_grade").val(res.student_grade);
+                        
+                        alert("데이터를 폼에 불러왔습니다. (MockAPI ID: " + res.id + ")");
+                        
+                       
+
                     } else {
                         console.log(xhr.status, xhr.statusText);
                     }
