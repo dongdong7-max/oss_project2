@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/
+3.7.1/jquery.min.js"></script>
+    <title>assignment4</title>
+</head>
+  
+<body>  
+    <!-- 버튼과 인풋 텍스트 박스 부분 -->
+    <form> 
+        name: <input type="text" id="student_name" placeholder="name"><br>
+        age: <input type="number" id="student_age" placeholder="age"><br>
+        student number: <input type="text"id="student_id" placeholder="student_id"><br>
+        grade:
+        <select id="student_grade">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+        </select><br>
+        <button type="button" id="add_btn">학생데이터 추가</button><br>
+        <button type="button" id="update_btn">학생데이터 수정</button><br>
+        <button type="button" id="delete_btn">학생데이터 삭제</button><br>
+        <button type="button" id="detail_btn">학생데이터 가져오기</button><br>
+
+    </form>
+    <!-- 이벤트 추가 및 여러 기능들 -->
+    <script>
+        $(function() {
+
+            $("#add_btn").click(function() {
+                alert("add student?");
+
+                const newId = $("#student_id").val();
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "http://localhost:3000/students");
+                xhr.setRequestHeader("content-type", "application/json");
+            
+                let data = {
+                    id: newId,
+                    name: $("#student_name").val(),
+                    age: $("#student_age").val(),
+                    student_id: newId,
+                    student_grade: $("#student_grade").val()
+                }
+                xhr.send(JSON.stringify(data));
+                xhr.onload = () => {
+                    if (xhr.status === 201) {
+                        const res = JSON.parse(xhr.response);
+                        alert(JSON.stringify(res));
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                    }
+                }
+            });
+
+            $("#update_btn").click(function() {
+                alert("update student?");
+
+                const newId = $("#student_id").val();
+                const xhr = new XMLHttpRequest();
+                xhr.open("PUT", "http://localhost:3000/students/" + $("#student_id").val());
+                xhr.setRequestHeader("content-type", "application/json");
+                let data = {
+                    id: newId,
+                    name: $("#student_name").val(),
+                    age: $("#student_age").val(),
+                    student_id: newId,
+                    student_grade: $("#student_grade").val()
+                };
+                xhr.send(JSON.stringify(data));
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        let res = JSON.parse(xhr.response);
+                        alert(JSON.stringify(res));
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                    }
+                }
+            });
+            $("#delete_btn").click(function() {
+                alert("delete student?");
+
+                const xhr = new XMLHttpRequest();
+                xhr.open("DELETE", "http://localhost:3000/students/" + $("#student_id").val());
+                xhr.setRequestHeader("content-type", "application/json");
+                xhr.send();
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        
+                        alert("삭제 성공");
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                    }
+                }
+            });
+
+            $("#detail_btn").click(function() {
+                alert("detail student?");
+
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", "http://localhost:3000/students/" + $("#student_id").val());
+                xhr.setRequestHeader("content-type", "application/json");
+                xhr.send();
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        let res = JSON.parse(xhr.response);
+                        alert(JSON.stringify(res));
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
